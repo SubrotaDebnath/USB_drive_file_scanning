@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">USB drive file scanning</string>
+    <string name="from_your_device_n_via_bluetooth">From your device\n via Bluetooth</string>
+    <string name="select_one_option">Select one option</string>
 </resources>

@@ -7,12 +7,36 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/mainTitleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/select_one_option"
+        app:layout_constraintBottom_toTopOf="@+id/usbBTN"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/usbBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From USB"
+        app:layout_constraintBottom_toTopOf="@+id/bluetoothBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitleTV"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/bluetoothBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/from_your_device_n_via_bluetooth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usbBTN" />
 </androidx.constraintlayout.widget.ConstraintLayout>
