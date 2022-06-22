@@ -17,13 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         val fromUsbButton = findViewById<Button>(R.id.usbBTN)
 
-
-
-
         fromUsbButton.setOnClickListener {
             Log.i(tag, "Usb button clicked")
-
-
             this.also { context ->
                 PrintHelper(context).apply {
                     scaleMode = PrintHelper.SCALE_MODE_FIT
