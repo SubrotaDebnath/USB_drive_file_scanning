@@ -1,10 +1,12 @@
 package subrota.shuveo.usbdrivefilescanning
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import me.jahnen.libaums.core.UsbMassStorageDevice
+import androidx.appcompat.app.AppCompatActivity
+import androidx.print.PrintHelper
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,20 +24,18 @@ class MainActivity : AppCompatActivity() {
             Log.i(tag, "Usb button clicked")
 
 
-            val devices = UsbMassStorageDevice.getMassStorageDevices(this /* Context or Activity */)
-
-            for (device in devices) {
-
-                // before interacting with a device you need to call init()!
-                device.init()
-
-                // Only uses the first partition on the device
-                val currentFs = device.partitions[0].fileSystem
-                Log.i(tag, "Capacity: " + currentFs.capacity)
-                Log.i(tag, "Occupied Space: " + currentFs.occupiedSpace)
-                Log.i(tag, "Free Space: " + currentFs.freeSpace)
-                Log.i(tag, "Chunk size: " + currentFs.chunkSize)
+            this.also { context ->
+                PrintHelper(context).apply {
+                    scaleMode = PrintHelper.SCALE_MODE_FIT
+                }.also { printHelper ->
+                    val bitmap = BitmapFactory.decodeResource(resources, R.drawable.man)
+                    printHelper.printBitmap("droids.jpg - test print", bitmap)
+                }
             }
+
         }
     }
+
 }
+
+
